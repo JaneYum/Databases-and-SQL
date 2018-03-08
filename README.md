@@ -65,6 +65,31 @@ ID define the relationship between the data
     statement += 'FROM Employee '
     statement += 'WHERE Title="Sales Representative"'
     cur.execute(statement)
+    # where operator
+    SELECT LastName, FirstName FROM Employee WHERE Title='Sales Representative'
+    https://paper.dropbox.com/doc/Lecture-16-Mar-8-More-WHERE-Relations-and-JOINs-qeMhnXFz2heWxTAMF0p2i
+    
+    # LIKE
+    LIKE allows you to do “wildcard” matching. There are two useful wildcards supported by LIKE:
+    
+    # In
+    SELECT CompanyName, Region FROM Customer
+    WHERE Region 
+    IN ("North America", "South America", "Central America")
+    
+    # AND, OR, NOT
+    You can create more complex conditionals using AND, OR, and NOT. These work as you would probably expect.
+
+    SELECT Id, ProductName FROM Product
+    WHERE UnitsInStock < ReorderLevel AND NOT Discontinued = 1
+    
+    # join 
+    
+    - JOIN is new. 
+    - JOIN specifies multiple tables to be “joined” together. In this case Classes and Teachers are the two tables to be JOINed
+    - JOIN is followed by an ON clause that specifies how the tables are to be joined. This has to be a conditional statement that resolves True or False for every combination of rows in the tables to be joined. In this example, it will find all of the rows in Classes and Teachers where `Classes.teacherID=Teachers.teacherID` and return them by “concatenating” them—or sticking them together. So in this case, the result of the statement would be
+
+
   Nesting strings within strings.
   # cursor
   You’ll note that after we executed the SQL command, we just iterated through the cursor as if it were a list.   This is a nice little feature that the cursor object gives us—you can treat it as an iterator which is    
